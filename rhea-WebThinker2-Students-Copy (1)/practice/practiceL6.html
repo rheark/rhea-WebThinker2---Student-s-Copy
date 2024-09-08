@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice HTML</title>
+    <link href="script/bootstrap.css" rel="stylesheet">
+    <script src="script/jquery.min.js"></script>
+    <script src="script/bootstrap.js"></script>
+    <style>
+        /* Add your custom CSS here */
+        .top-left-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <a href="../index.html" class="btn btn-primary top-left-button">Back to Index</a>
+    </div>
+    <br>
+    <!-- Start your HTML code here -->
+    <div>
+        <h1 class="text-center">Hello, World!</h1>
+        <p class="text-center">This is an example paragraph. Replace it with your content.</p>
+    </div>
+    <!-- End your HTML code here -->
+    <script>
+        // Add your custom JavaScript here
+        let num1 = 2;
+        let num2 = 3;
+        let num3 = num2%num1;
+        console.log("The modulus of " + num2 + " and" + num1 + " is " + num3);
+
+        const calculateCircleArea = (radius) => {
+            const area = 3.14*radius**2;
+            return area;
+        };
+        const circle1 = calculateCircleArea(5);
+        const circle2 = calculateCircleArea(7);
+        const circle3 = calculateCircleArea(12);
+        const totalarea = circle1+circle2+circle3;
+        
+        console.log("Area of circle 1:" + circle1);
+        console.log("Area of circle 2:" + circle2);
+        console.log("Area of circle 3:" + circle3);
+
+        console.log("Total area of circles:" + totalarea);
+    </script>
+</body>
+</html>
