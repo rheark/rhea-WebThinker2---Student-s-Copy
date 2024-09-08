@@ -12,7 +12,7 @@ const onCalcBMIPress = () => {
   $('#results').html('');
 
   $('#results').append("<p> Your BMI is: " + BMI.toFixed(2) + '</p>');
-
+  console.log("test");
   if(BMI < 18.5){
     $('#results').append('<p> Hello Skinny, eat more to grow well!</p>');
     $('#results').addClass('bg-danger');

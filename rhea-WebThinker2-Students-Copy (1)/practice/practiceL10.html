@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice HTML</title>
+    <link href="script/bootstrap.css" rel="stylesheet">
+    <script src="script/jquery.min.js"></script>
+    <script src="script/bootstrap.js"></script>
+    <style>
+        /* Add your custom CSS here */
+        .top-left-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <a href="../index.html" class="btn btn-primary top-left-button">Back to Index</a>
+    </div>
+    <br>
+    <!-- Start your HTML code here -->
+    <div id = "loop">
+    </div>
+    <!-- End your HTML code here -->
+    <script>
+        // Add your custom JavaScript here
+        for (let i=1;i<11;i++){
+            let j = i*7;
+            $('#loop').append('<p> 7 x '+ i + ' = ' + j + '</p>');
+        }
+    </script>
+</body>
+</html>
