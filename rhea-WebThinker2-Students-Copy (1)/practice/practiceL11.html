@@ -22,24 +22,19 @@
     </div>
     <br>
     <!-- Start your HTML code here -->
-    <div class = "row">
-        <label class = "fw-bold"> Number: </label>
-        <input class = "form-control" id = "userinput" type = "number"/>
-        <button class = "btn btn-primary" onclick = onCalcPress()> Show </button>
-    </div>
-    <div id="practice" class = "text-centre">
+    <div class = "d-flex align-items-center justify-content-center vh-100 bg-success text-white">
+        <h1 id = "results"></h1>
+       
     </div>
     <!-- End your HTML code here -->
-
     <script>
         // Add your custom JavaScript here
-        const onCalcPress = () => {
-            $('#practice').html('');
-            let user = $("#userinput").val();
-            for(let i =0;i<=12;i++){
-                $('#practice').append('<p>' + user + ' x ' + i + ' = ' + user*i + '</p>');
-            }
-        } 
+    let numberToGuess =7;
+    let userinput = 0;
+    do {
+        userinput = prompt("guess the number between 1 and 10.");
+    } while (userinput!=numberToGuess);
+    $('#results').html("you have guessed correctly!");
     </script>
 </body>
 </html>
