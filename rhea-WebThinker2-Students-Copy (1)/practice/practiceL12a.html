@@ -23,41 +23,95 @@
     <br>
     <!-- Start your HTML code here -->
     <div>
+    <!-- order form -->
         <h3> Order for fruits </h3>
-        <form>
+        <form id = "orderForm">
             <div class = "row" >
                 <div class = "col">
                     
-                    <label> "Fruit" </label>
-                    <select>
-                        <option>
-                            //append our options here
-                        </option>
+                    <label> Fruit </label>
+                    <select id = "fruitSelect" class = "form-control">
+                        // append in script
                     </select>
-
- 
-
                 </div>
                 <div class = "col">
-                <label> "Quantity" </label>
-                <select>
-                    <option>
-                            //append our options here
-                    </option>
-                </select>
+                <label> Quantity </label>
+                <input type ="number" class = "form-control" id = "quantityInput" min = "1" placeholder="Enter Quantity"/> 
+                </div>
+                <div class = "col-1 align-self-end">
+                    <button type = "submit" class = "btn btn-primary">Submit Order</button>
+
                 </div>
             </div>
 
         </form>
         
-
-
+    </div>
+    <!--Invoice table-->
+    <div>
+        <h3>Invoice</h3>
+        <table class = " table table-bordered">
+            <thead>
+                <tr>
+                    <th> No. </th>
+                    <th> Fruit </th>
+                    <th> Quantity </th>
+                    <th> Unit Price </th>
+                    <th> Total Price </th>
+                </tr>
+            </thead>
+            <tbody id = "invoiceTableBody">
+                <!-- append the rows using script-->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan = "4" class="text-right"> Grand Total: </td>
+                    <td id = "grandTotal">$0.00</td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
     <!-- End your HTML code here -->
     <script>
         // Add your custom JavaScript here
-        let fruits = ["apple","orange","banana","pineapple"];
-        let fruitprice = ["$0.80","$1.45","$3.25","$2.85"];
+        let fruits = ["apple","orange","banana","pineapple","Mango","Grapes"];
+        let fruitprice = [0.80,1.45,0.75,2.85,1.50,2.00];
+        for (let i= 0; i < fruits.length;i++){
+            $('#fruitSelect').append('<option>' + fruits[i] + '</option>');
+        }
+
+        $('#orderForm').submit(function(event) {
+            event.preventDefault();
+            let fruit = $('#fruitSelect').val();
+            let quantity = $('#quantityInput').val();
+
+            if(quantity >0 && fruit!==null){
+                let unitprice = fruitprice[fruits.indexOf(fruit)];
+                let totalprice = unitprice * quantity;
+
+                let invoiceRow = '<tr>' +
+                '<td>' + ($('#invoiceTableBody tr').length + 1) + '</td>' + 
+                '<td>' + fruit + '</td>' +
+                '<td>' + quantity + '</td>' +
+                '<td>' + unitprice.toFixed(2) + '</td>' +
+                '<td>' + totalprice.toFixed(2) + '</td>' +
+                '</tr>';
+                $('#invoiceTableBody').append(invoiceRow);
+                updateGrandTotal();
+            }
+
+        });
+
+        function updateGrandTotal(){
+            let grandTotal = 0;
+            $('#invoiceTableBody tr').each(function(){
+                let totalprice = parseFloat($(this).find('td').eq(4).text().replace('$',''));
+                grandTotal+=totalprice;
+            });
+            $('#grandTotal').text('$' + grandTotal.toFixed(2));
+        }
+
+        
         //stop selling pineapple
         /*
         fruits.pop();
@@ -85,6 +139,7 @@
            console.log("The price of " + fruits[i] + " is " + fruitprice[i]);
         }
            */
+           /*
         while(true)
         {
             
@@ -108,6 +163,7 @@
             
 
         }
+            */
     </script>
 </body>
 </html>
