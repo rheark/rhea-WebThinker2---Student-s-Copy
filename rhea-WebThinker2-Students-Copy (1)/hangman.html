@@ -10,6 +10,22 @@
 	<link href="script/bootstrap.css" rel="stylesheet" />
 	<link href="script/hangman.css" rel="stylesheet" />
 	<link href="img/favicon-c3.png" rel="icon" />
+<!-- new addition-->
+	<style>
+		.card {
+            display: inline-flex;
+            width: 30px;             /* Adjust width to fit letters */
+            height: 40px;            /* Adjust height as needed */
+            text-align: center;
+            align-items: center;     /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
+            font-size: 24px;
+            border: 2px solid #333;  /* Adds a border to create card effect */
+            border-radius: 5px;
+            background-color: #f8f8f8;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Card shadow */
+        }
+	</style>
 </head>
 <body class="bg-secondary bg-opacity-10" style="min-width:320px">
 	<header>
@@ -43,17 +59,22 @@
 				<img id = "life" src = "img/hangman-7.svg" alt = "hangman">
 			</div>
 			<div class = "col">
-				<div id = "hint"> </div>
+				<!-- new addition-->
+				<div id = "hint" style = "display: flex; gap: 10px;"> </div>
+				
 				<div> 
 					<p> Incorrect Guesses : <span id = "incorrectGuesses"> </span> </p>
 				</div>
 				<div>
 					<input type = "text" id ="guessInput" maxlength="1" placeholder="Enter a letter">
-					<button onclick = "SubmitGuess()"> Submit </button>
+					<!-- new addition -->
+					<button onclick = "SubmitGuess()" id = "submitButton"> Submit </button>
 				</div>
 				<div>
 					<button onclick = "newGame()"> New Game </button>
 				</div>
+				<!-- new addition -->
+				<div id = "winOrLose"> </div>
 
 			</div>
 
