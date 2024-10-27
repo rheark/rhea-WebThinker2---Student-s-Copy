@@ -34,6 +34,7 @@ const keyPress = (key) =>
                 console.log('player has won');
                 // new addition
                 $('#winOrLose').append('<p> You Won!</p>');
+                $('#submitButton').hide(); 
              }
         }
         else{
@@ -76,9 +77,10 @@ const endGame = () =>
 //new addition
 const newGame = () =>
     {
-       //location.reload();
-
+       location.reload();
+        
        //challenge
+       /*
        guess = [];
        incorrectGuesses = []
        life = 7;
@@ -96,4 +98,5 @@ const newGame = () =>
             $('#hint').append('<div class="card blank">_</div>');
         }
      }
+    */
     }
