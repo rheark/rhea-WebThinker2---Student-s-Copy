@@ -21,7 +21,7 @@ const keyPress = (key) =>
              //update the hint 
              for(let i = 0;i<word.length;i++){
                 if(word[i] == " "){
-                    $('#hint').append('<div class = "card" >' + "space" + '</div>');
+                    $('#hint').append('<div class = "card" >' + " " + '</div>');
                 }else if (guess.indexOf(word[i])!=-1)
                 {
                     $('#hint').append('<div class = "card">' + word[i] + '</div>');
